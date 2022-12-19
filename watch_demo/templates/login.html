@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block custom_css %}
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h1 class="login_header">Okta</h1>
+      </div>
+  
+      <!-- Login Form -->
+      <form action="{% url 'login' %}" class="inline-section" method="post">
+        <input type="text" id="login" name="username" class="fadeIn second" placeholder="login">
+        {% csrf_token %}
+        <input type="text" id="password" name="password" class="fadeIn third" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>
+
+{% endblock %}
